@@ -70,20 +70,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <style>
-        .product-button img {
-            width: 100%;
-            height: auto;
-            max-height: 150px;
-            object-fit: contain;
-            border-radius: 0.5rem;
-        }
-    </style>
 </head>
 <body class="bg-gray-100">
     <nav class="bg-white shadow-md p-4 flex justify-between items-center">
         <div class="flex items-center space-x-2">
-            <img src="{{ asset('assets/images/logo_3difyy.png') }}" alt="3DIFY Logo" class="h-8">
+            <img src="{{ asset('assets/images/logo_3difyy.png') }}" alt="3DIFY Logo" class="h-10">
             <span class="font-bold text-lg">3DIFY</span>
         </div>
         <div class="space-x-6 hidden md:flex">
@@ -108,29 +99,32 @@
         </div>
     </nav>
 
-    <header class="relative w-full h-[400px] flex items-center text-white px-6">
-        <img src="{{ asset('assets/images/banner.png') }}" alt="Banner 3DIFY" class="absolute w-[calc(100%-200px)] h-full object-cover rounded-lg left-1/2 transform -translate-x-1/2 mt-10">
-        <div class="relative z-10 max-w-xl text-left ml-20 pl-8">
-            <p class="text-4xl font-bold max-w-xl">Solusi Praktis Kebutuhan Asset 3D Blender</p>
-            <p class="mt-2 text-xl">3Dify memudahkan Anda menemukan dan membeli asset 3D berkualitas tinggi, khusus untuk furniture dan alat tulis sekolah.</p>
-            <div class="mt-4 flex space-x-4">
-                <button class="bg-blue-600 px-4 py-2 rounded-md text-white">Jelajahi Kategori</button>
-                <button class="bg-white text-blue-600 px-4 py-2 rounded-md border border-blue-600">Temukan Produk</button>
-            </div>
+    <header class="relative w-full h-[500px] flex items-center text-white px-6">
+    <img src="{{ asset('assets/images/banner.png') }}" 
+        alt="Banner 3DIFY" 
+        class="absolute w-full h-full object-cover rounded-b-[50px] top-0 left-0">
+    
+    <div class="relative z-10 max-w-xl text-left ml-15 pl-8">
+        <p class="text-4xl font-bold max-w-xl text-justify">Solusi Praktis Kebutuhan Asset 3D Blender</p>
+        <p class="mt-2 text-xl text-justify">3Dify memudahkan Anda menemukan dan membeli asset 3D berkualitas tinggi, khusus untuk furniture dan alat tulis sekolah.</p>
+        <div class="mt-4 flex space-x-4">
+            <button class="bg-blue-600 px-4 py-2 rounded-md text-white">Jelajahi Kategori</button>
+            <button class="bg-white text-blue-600 px-4 py-2 rounded-md border border-blue-600">Temukan Produk</button>
         </div>
+    </div>
     </header>
 
     <section class="container mx-auto mt-10 p-6 text-center">
         <h2 class="text-xl font-semibold mb-4">Trending Categories</h2>
         <div class="flex justify-center space-x-4">
             <div class="flex flex-col items-center">
-                <a href="furniture.html" class="block w-40 h-40 bg-gradient-to-b from-blue-400 to-blue-800 rounded-md overflow-hidden">
+                <a href="{{ url('/user/furniture') }}" class="block w-40 h-40 bg-gradient-to-b from-blue-400 to-blue-800 rounded-md overflow-hidden">
                     <img src="{{ asset('assets/images/design (4) 1.png') }}" alt="Furniture" class="w-full h-full object-contain">
                 </a>
                 <span class="text-center text-black mt-2 font-bold text-lg">Furniture</span>
             </div>
             <div class="flex flex-col items-center">
-                <a href="stationary.html" class="block w-40 h-40 bg-gradient-to-b from-blue-400 to-blue-800 rounded-md overflow-hidden">
+                <a href="{{ url('/user/stationary') }}" class="block w-40 h-40 bg-gradient-to-b from-blue-400 to-blue-800 rounded-md overflow-hidden">
                     <img src="{{ asset('assets/images/design (4) 2.png') }}" alt="Stationary" class="w-full h-full object-contain">
                 </a>
                 <span class="text-center text-black mt-2 font-bold text-lg">Stationary</span>
@@ -154,7 +148,7 @@
                         <a href="{{ url('/product/'.$product->id) }}" class="block">
                             <h2 class="text-xl font-semibold">{{ $product->name }}</h2>
                         </a>
-                        <p class="text-gray-500">{{ $product->description }}</p>
+                        <!-- <p class="text-gray-500">{{ $product->description }}</p> -->
                         <p class="text-gray-500">Rp{{ number_format($product->price, 0, ',', '.') }}</p>
                     </div>
                 </button>
